@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/containerResult_widget.dart';
 import 'package:flutter_application_1/widgets/input_widget.dart';
-import 'package:flutter_application_1/widgets/operator_widget.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_application_1/widgets/rowOperators_widget.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -16,7 +16,6 @@ class _MyHomePageState extends State<MyHomePage> {
   var valor1InputController = TextEditingController();
   var valor2InputController = TextEditingController();
   String operacao = "+";
-
   double resultado = 0;
 
   @override
@@ -36,27 +35,22 @@ class _MyHomePageState extends State<MyHomePage> {
             InputWidget(
               title: "Valor2", 
               controller: valor2InputController),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                OperatorWidget(operador: "+", iconeOperador: Icon(Icons.add), atualizarOperador: atualizarOperador),
-                OperatorWidget(operador: "-", iconeOperador: Icon(Icons.remove), atualizarOperador: atualizarOperador),
-                OperatorWidget(operador: "*", iconeOperador: Icon(Icons.close), atualizarOperador: atualizarOperador),
-                OperatorWidget(operador: "/", iconeOperador: Icon(FontAwesomeIcons.divide), atualizarOperador: atualizarOperador),
-              ],
-            ),
+            RowOperatorsWidget(atualizarOperador: atualizarOperador),
+            SizedBox(height: 24),
             ElevatedButton(
               onPressed: calcular,
               child: Text('Calcular'),
             ),
-            Text(
-              'Resultado: $resultado',
-              style: TextStyle(fontSize: 24),
-            ),
+            SizedBox(height: 64),
+            ContainerResultWidget(resultado: resultado),     
           ],
         ),
       ),
     );
+  }
+
+  void Color(){
+
   }
 
   void calcular() {
