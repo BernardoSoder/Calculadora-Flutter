@@ -49,10 +49,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void Color(){
-
-  }
-
   void calcular() {
     double valor1 = double.tryParse(valor1InputController.text) ?? 0;
     double valor2 = double.tryParse(valor2InputController.text) ?? 0;
